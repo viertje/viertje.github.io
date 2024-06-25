@@ -4,6 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
+import Hotels from "./pages/Hotels";
+import Fluege from "./pages/Fluege";
+import Buchungen from "./pages/Buchungen";
 import './index.css'
 
 export default function App() {
@@ -12,6 +15,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="hotels" element={<Hotels />} />
+          <Route path="fluege" element={<Fluege />} />
+          <Route path="buchungen" element={<Buchungen />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
