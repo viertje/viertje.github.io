@@ -1,0 +1,57 @@
+import React, { useState, useEffect } from 'react';
+import { addBooking, getHotel, getBookings } from '../../api/api';
+import DatePicker from 'react-datepicker';
+
+export default function AddHotelForm({id}) {
+    const [name, setName] = useState('');
+
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+
+    const [hotel, setHotel] = useState(null);
+    useEffect(() => {
+        getHotel(id).then((response) => setHotel(response));
+    })
+
+    const [bookings, setBookings] = useState(null);
+    useEffect(() => {
+        getBookings().then((response) => setBookings(response));
+    })
+
+    const getID = () => {
+        if (bookings) {
+            return bookings.length + 1;
+        }
+    }
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const formattedStartDate = startDate.toISOString().split('T')[0];
+        const formattedEndDate = startDate.toISOString().split('T')[0];
+        try {
+            await addBooking({
+                id: getID(),
+                name: name,
+                hotel: {hotel},
+                startDate: formattedStartDate,
+                endDate: formattedEndDate
+            })
+            alert('Booking added');
+        }
+        catch (error) {
+            console.log(error);
+        }
+    };
+
+    return (
+        <form onSubmit={handleSubmit} className='grid grid-cols-2 gap-2 p-4 m-4'>
+            <input className='mx-2 rounded-md text-black' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Name' />
+            <DatePicker className="text-black rounded-md text-center w-44" selected={startDate} onChange={(date) => setStartDate(date)} />
+            <DatePicker className="text-black rounded-md text-center w-44" selected={endDate} onChange={(date) => setEndDate(date)} />
+            <button className='place-self-center bg-gradient-to-r from-gray-700 to-indigo-900 hover:to-indigo-950 hover:from-gray-950 border-2 border-white rounded-md p-2' type="submit">Buchen</button>
+        </form>
+    );
+};
+

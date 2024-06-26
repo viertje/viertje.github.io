@@ -1,37 +1,70 @@
 import React from 'react';
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import HotelTable from '../components/Tables/HotelTable';
+import HotelSelect from '../components/Selects/HotelSelect';
+import { Modal } from 'flowbite-react';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { getHotels } from '../api/api';
+import AddHotelForm from '../components/FormComponents/AddHotelForm';
 
 function Hotels() {
-    const [startDate, setStartDate] = useState(new Date());
+
+    const [openModal, setOpenModal] = useState(false);
+
+    const [hotels, setHotels] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            getHotels().then((response) => setHotels(response));
+          } catch (error) {
+            setError(error.message);
+          } finally {
+            setLoading(false);
+          }
+        };
+        fetchData();
+    }, [])
+
+    if (loading) return <div className='w-full flex justify-center mt-48' color="failure" aria-label="Spinner" size="xl">Loading</div>;
+    if (error) return <p>Error: {error}</p>;
     
+
     return (
         <div>
             <div className='flex justify-between mb-8'>
                 <div className='text-4xl'>Hotels</div>
-                <button className='hover:scale-105 text-black py-2 px-8 bg-gradient-to-r from-gray-200 to-indigo-900 rounded-md'>Hotel Hinzufügen</button>
+                <button className='hover:scale-105 text-black py-2 px-8 bg-gradient-to-r from-gray-200 to-indigo-900 rounded-md' onClick={() => setOpenModal(true)}>Hotel Hinzufügen</button>
             </div>
 
             <div className="bg-gradient-to-r from-blue-900 to-neutral-800 rounded-md gap-8 p-2 flex justify-between">
                 <div>
-                    <select className="text-black rounded-md text-center hover:scale-105 mx-4 w-72">
-                        <option disabled>Von</option>
-                        <option value="London">London</option>
-                    </select>
+                    <HotelSelect />
                 </div>
-                <div>
-                    <DatePicker className="hover:scale-105 text-black rounded-md text-center w-44" selected={startDate} onChange={(date) => setStartDate(date)} />
-                </div>
-                <div>
-                    <DatePicker className="hover:scale-105 text-black rounded-md text-center w-44" selected={startDate} onChange={(date) => setStartDate(date)} />
-                </div>
+ 
                 <button className="hover:scale-105 text-black py-2 px-8 bg-gradient-to-r from-gray-200 to-indigo-900 rounded-md">Suchen</button>
             </div>
+            <div className="bg-gradient-to-r from-blue-900 to-neutral-800 rounded-md p-2 my-4">
 
-            <div className="bg-gradient-to-r from-blue-900 to-neutral-800 rounded-md gap-8 p-2 flex justify-between mt-8 h-auto">
+            {hotels.map((i, key) => {
+                return(
+                    <HotelTable hotel={i} key={key} />
+                )
+            })}
             </div>
+
+
+            <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
+                <Modal.Header className="bg-gray-600">Hotel hinzufügen</Modal.Header>
+                <Modal.Body className="bg-gray-700">
+                    <AddHotelForm />
+                </Modal.Body>
+            </Modal>
         </div>
+
+
     );
 }
 

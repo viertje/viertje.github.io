@@ -3,7 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from 'react';
 
-function Fluege() {
+export default function Fluege() {
     const [startDate, setStartDate] = useState(new Date());
 
     return (
@@ -38,4 +38,3 @@ function Fluege() {
     );
 }
 
-export default Fluege;

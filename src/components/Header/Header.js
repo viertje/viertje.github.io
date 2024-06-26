@@ -10,9 +10,10 @@ export default function Header(){
                 </Link>
 
                 <div className="flex gap-8 mx-32 text-xl">
-                    <Link to="/Hotels">Hotels</Link>
-                    <Link to="/Fluege">Flüge</Link>
-                    <Link to="/Buchungen">Meine Buchungen</Link>
+                    <Link className="hover:scale-105" to="/Hotels">Hotels</Link>
+                    <Link className="hover:scale-105" to="/Fluege">Flüge</Link>
+                    <Link className="hover:scale-105" to="/Buchungen">Meine Buchungen</Link>
+                    <Link className="hover:scale-105" to="/Meetings">Meetings</Link>
                 </div>
 
             </div>

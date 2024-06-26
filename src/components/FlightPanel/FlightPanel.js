@@ -3,9 +3,30 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from 'react';
 import { Link } from "react-router-dom"
+import axios from 'axios';
+import { useEffect } from 'react';
 
-export default function FlightPanel({ title, description }) {
+export default function FlightPanel() {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [startDate, setStartDate] = useState(new Date());
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('http://localhost:3001/Airports/');
+            setData(response.data);
+          } catch (error) {
+            setError(error.message);
+          } finally {
+            setLoading(false);
+          }
+        };
+        fetchData();
+    }, []);
+
+    if (loading) return <div className='w-full flex justify-center mt-48' color="failure" aria-label="Spinner" size="xl">Loading</div>;
+    if (error) return <p>Error: {error}</p>;
 
     return (
         <>
@@ -16,13 +37,17 @@ export default function FlightPanel({ title, description }) {
                 </Link>
                 <div className='col-span-2 grid grid-cols-2 gap-4 p-4'>
                     
-                    <select className="text-black rounded-md text-center hover:scale-105">
+                    <select className="text-black rounded-md text-center hover:scale-105" defaultValue="Von">
                         <option disabled>Von</option>
-                        <option value="London">London</option>
+                        {data.map((airport) => (
+                            <option key={airport.id} value={airport.name}>{airport.name}</option>
+                        ))}
                     </select >
-                    <select className="text-black rounded-md text-center hover:scale-105">
+                    <select className="text-black rounded-md text-center hover:scale-105" defaultValue="Nach">
                         <option disabled>Nach</option>
-                        <option value="London">London</option>
+                        {data.map((airport) => (
+                            <option key={airport.id} value={airport.name}>{airport.name}</option>
+                        ))}
                     </select >
                     <div>
                     <DatePicker className="hover:scale-105 text-black rounded-md text-center w-44" selected={startDate} onChange={(date) => setStartDate(date)} />

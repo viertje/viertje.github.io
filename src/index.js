@@ -7,6 +7,7 @@ import NoPage from "./pages/NoPage";
 import Hotels from "./pages/Hotels";
 import Fluege from "./pages/Fluege";
 import Buchungen from "./pages/Buchungen";
+import Meetings from "./pages/Meetings";
 import './index.css'
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="hotels" element={<Hotels />} />
           <Route path="fluege" element={<Fluege />} />
           <Route path="buchungen" element={<Buchungen />} />
+          <Route path="meetings" element={<Meetings />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

@@ -1,11 +1,23 @@
 {
   "trips": [
     {
-      "id": 1,
+      "id": "1",
       "title": "BT01",
       "description": "San Francisco World Trade Center on new Server/IOT/Client ",
-      "startTrip": [2021, 2, 13, 0, 0],
-      "endTrip": [2021, 2, 15, 16, 56],
+      "startTrip": [
+        2021,
+        2,
+        13,
+        0,
+        0
+      ],
+      "endTrip": [
+        2021,
+        2,
+        15,
+        16,
+        56
+      ],
       "meetings": [
         {
           "id": 1,
@@ -20,11 +32,23 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "BT02",
       "description": "Santa Clara Halley on new Server/IOT/Client",
-      "startTrip": [2021, 6, 23, 9, 0],
-      "endTrip": [2021, 6, 27, 16, 56],
+      "startTrip": [
+        2021,
+        6,
+        23,
+        9,
+        0
+      ],
+      "endTrip": [
+        2021,
+        6,
+        27,
+        16,
+        56
+      ],
       "meetings": [
         {
           "id": 3,
@@ -39,11 +63,23 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "BT03",
       "description": "San Cose City Halley on Docker/IOT/Client",
-      "startTrip": [2021, 12, 13, 9, 0],
-      "endTrip": [2021, 12, 15, 16, 56],
+      "startTrip": [
+        2021,
+        12,
+        13,
+        9,
+        0
+      ],
+      "endTrip": [
+        2021,
+        12,
+        15,
+        16,
+        56
+      ],
       "meetings": [
         {
           "id": 5,
@@ -51,6 +87,304 @@
           "description": "Key Note on One Conference"
         }
       ]
+    }
+  ],
+  "Hotels": [
+    {
+      "id": "0",
+      "name": "Hotel 1",
+      "country": "USA",
+      "city": "San Francisco",
+      "price": 200
+    },
+    {
+      "id": "1",
+      "name": "Hotel 2",
+      "country": "USA",
+      "city": "Santa Clara",
+      "price": 100
+    },
+    {
+      "id": "2",
+      "name": "Hotel 3",
+      "country": "USA",
+      "city": "San Jose",
+      "price": 150
+    },
+    {
+      "id": "3",
+      "name": "Sternen",
+      "country": "Schweiz",
+      "city": "Chur",
+      "price": 300
+    },
+    {
+      "id": "4",
+      "name": "Waldhaus",
+      "country": "Schweiz",
+      "city": "Flims",
+      "price": 500
+    }
+  ],
+  "Flights": [
+    {
+      "id": "1",
+      "from": "San Francisco",
+      "to": "Santa Clara",
+      "departure": [
+        2021,
+        2,
+        13,
+        9,
+        0
+      ],
+      "arrival": [
+        2021,
+        2,
+        13,
+        10,
+        0
+      ],
+      "price": 100
+    },
+    {
+      "id": "2",
+      "from": "Santa Clara",
+      "to": "San Jose",
+      "departure": [
+        2021,
+        2,
+        15,
+        9,
+        0
+      ],
+      "arrival": [
+        2021,
+        2,
+        15,
+        10,
+        0
+      ],
+      "price": 100
+    },
+    {
+      "id": "3",
+      "from": "San Jose",
+      "to": "San Francisco",
+      "departure": [
+        2021,
+        2,
+        15,
+        16,
+        0
+      ],
+      "arrival": [
+        2021,
+        2,
+        15,
+        17,
+        0
+      ],
+      "price": 100
+    },
+    {
+      "id": "4",
+      "from": "San Francisco",
+      "to": "Santa Clara",
+      "departure": [
+        2021,
+        6,
+        23,
+        9,
+        0
+      ],
+      "arrival": [
+        2021,
+        6,
+        23,
+        10,
+        0
+      ],
+      "price": 100
+    },
+    {
+      "id": "5",
+      "from": "Santa Clara",
+      "to": "San Jose",
+      "departure": [
+        2021,
+        6,
+        27,
+        9,
+        0
+      ],
+      "arrival": [
+        2021,
+        6,
+        27,
+        10,
+        0
+      ],
+      "price": 100
+    },
+    {
+      "id": "6",
+      "from": "San Jose",
+      "to": "San Francisco",
+      "departure": [
+        2021,
+        6,
+        27,
+        16,
+        0
+      ],
+      "arrival": [
+        2021,
+        6,
+        27,
+        17,
+        0
+      ],
+      "price": 100
+    },
+    {
+      "id": "7",
+      "from": "San Francisco",
+      "to": "Santa Clara",
+      "departure": [
+        2021,
+        12,
+        13,
+        9,
+        0
+      ],
+      "arrival": [
+        2021,
+        12,
+        13,
+        10,
+        0
+      ],
+      "price": 100
+    },
+    {
+      "id": "8",
+      "from": "Santa Clara",
+      "to": "San Jose",
+      "departure": [
+        2021,
+        12,
+        15,
+        9,
+        0
+      ],
+      "arrival": [
+        2021,
+        12,
+        15,
+        10,
+        0
+      ],
+      "price": 100
+    },
+    {
+      "id": "9",
+      "from": "San Jose",
+      "to": "San Francisco",
+      "departure": [
+        2021,
+        12,
+        15,
+        16,
+        0
+      ],
+      "arrival": [
+        2021,
+        12,
+        15,
+        17,
+        0
+      ],
+      "price": 100
+    }
+  ],
+  "Bookings": [
+    {
+      "id": 1,
+      "name": "Olivier",
+      "hotel": {
+        "hotel": {
+          "id": "0",
+          "name": "Hotel 1",
+          "country": "USA",
+          "city": "San Francisco",
+          "price": 200
+        }
+      },
+      "startDate": "2024-06-28",
+      "endDate": "2024-06-28"
+    },
+    {
+      "id": 2,
+      "name": "Ruedi",
+      "hotel": {
+        "hotel": {
+          "id": "2",
+          "name": "Hotel 3",
+          "country": "USA",
+          "city": "San Jose",
+          "price": 150
+        }
+      },
+      "startDate": "2024-07-02",
+      "endDate": "2024-07-02"
+    }
+  ],
+  "Airports": [
+    {
+      "id": "1",
+      "name": "San Francisco",
+      "code": "SFO"
+    },
+    {
+      "id": "2",
+      "name": "Santa Clara",
+      "code": "SJC"
+    },
+    {
+      "id": "3",
+      "name": "San Jose",
+      "code": "SJC"
+    },
+    {
+      "id": "4",
+      "name": "New York",
+      "code": "JFK"
+    },
+    {
+      "id": "5",
+      "name": "Boston",
+      "code": "BOS"
+    },
+    {
+      "id": "6",
+      "name": "Zurich",
+      "code": "ZRH"
+    },
+    {
+      "id": "7",
+      "name": "Amsterdam",
+      "code": "AMS"
+    },
+    {
+      "id": "8",
+      "name": "London",
+      "code": "LHR"
+    },
+    {
+      "id": "9",
+      "name": "Paris",
+      "code": "CDG"
     }
   ]
 }

@@ -10,7 +10,7 @@ const Home = () => {
                 <div className="text-4xl mb-8 bg-gradient-to-r from-blue-900 to-neutral-800 rounded-md p-4">Die Seite für Ihre Geschäftsreisen</div>
             </div>
                 <div className="grid gap-32 grid-cols-3">
-                    <Card image="/items/1.jpg" title="lalalalla" description="lalalal" />
+                    <Card image="/items/1.jpg" title="San F" description="lalalal" />
                     <Card image="/items/2.jpg" title="lalalalla" description="lalalal" />
                     <Card image="/items/3.jpg" title="lalalalla" description="lalalal" />
                 </div>
