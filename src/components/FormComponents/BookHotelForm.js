@@ -39,6 +39,7 @@ export default function AddHotelForm({id}) {
                 endDate: formattedEndDate
             })
             alert('Booking added');
+            window.location.reload();
         }
         catch (error) {
             console.log(error);

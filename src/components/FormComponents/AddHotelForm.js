@@ -29,6 +29,7 @@ export default function BookHotelForm() {
                 price: price,
             })
             alert('Hotel added');
+            window.location.reload();
         }
         catch (error) {
             console.log(error);

@@ -2,11 +2,24 @@ import React from 'react';
 import "react-datepicker/dist/react-datepicker.css";
 import { Modal } from 'flowbite-react';
 import { useState } from 'react';
+import { deleteBooking } from '../../api/api';
+
 
 export default function HotelBookingTable({booking}) {
 
   const [openModal, setOpenModal] = useState(false);
-  console.log(booking);
+
+  const handleDelete = async (id) => {
+    try {
+        console.log('Deleting booking with id:', id);
+        await deleteBooking(id);
+        alert('Booking deleted');
+        window.location.reload();
+
+    } catch (error) {
+        console.error('Error deleting product:', error);
+    }
+};
 
 
   return (
@@ -26,9 +39,16 @@ export default function HotelBookingTable({booking}) {
               <div className="text-2xl">{booking.name}</div>
               <div>{booking.hotel.hotel.name}</div>
               <div>{booking.hotel.hotel.city}</div>
-              <div>{booking.hotel.hotel.price} CHF</div>
+              <div>Von:{booking.startDate}</div>
+                <div>Bis: {booking.endDate}</div>
+              <div className='mb-2'>{booking.hotel.hotel.price} CHF</div>
+                <div className='flex justify-between gap-4'>
+                <button className="hover:scale-105 text-black py-2 px-8 bg-gradient-to-r from-gray-200 to-indigo-900 rounded-md">Ändern</button>
+                <button className="hover:scale-105 text-black py-2 px-8 bg-gradient-to-r from-gray-200 to-indigo-900 rounded-md" onClick={() => handleDelete(booking.id)}>Löschen</button>
+                </div>
             </div>
           </div>
+
             </Modal.Body>
             </Modal>
             </div>

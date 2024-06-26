@@ -56,3 +56,12 @@ export async function getHotel(id) {
         throw error.response;
     }
 }
+
+export async function deleteBooking(id) {
+    try {
+        const response = await axios.delete(`${BASE_URL}/Bookings/${id}`);
+        return response.data;
+    } catch (error) {
+        throw error.response;
+    }
+}
