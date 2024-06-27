@@ -17,7 +17,7 @@ export default function HotelTable({hotel}) {
               <div value={hotel.address}>{hotel.address}</div>
               <div value={hotel.city}>{hotel.city}</div>
               <div value={hotel.country}>{hotel.country}</div>
-              <div value={hotel.price}>{hotel.price} / Nacht</div>
+              <div value={hotel.price}>{hotel.price}.-/Nacht</div>
               <button className="hover:scale-105 text-black py-2 px-8 bg-gradient-to-r from-gray-200 to-indigo-900 rounded-md" onClick={() => setOpenModal(true)}>Details</button>
               <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
                 <Modal.Header className="bg-gray-600">{hotel.name}</Modal.Header>

@@ -47,11 +47,20 @@ export default function AddHotelForm({id}) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className='grid grid-cols-2 gap-2 p-4 m-4'>
-            <input className='mx-2 rounded-md text-black' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Name' />
+        <form onSubmit={handleSubmit} >
+            <div className='grid grid-cols-2 gap-2 p-4 m-4'>
+            <input className='mx-2 rounded-md text-black' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Name' required />
+            <div>
             <DatePicker className="text-black rounded-md text-center w-44" selected={startDate} onChange={(date) => setStartDate(date)} />
+            </div>
+            <div>
             <DatePicker className="text-black rounded-md text-center w-44" selected={endDate} onChange={(date) => setEndDate(date)} />
-            <button className='place-self-center bg-gradient-to-r from-gray-700 to-indigo-900 hover:to-indigo-950 hover:from-gray-950 border-2 border-white rounded-md p-2' type="submit">Buchen</button>
+            </div>
+            </div>
+            <div className='flex justify-center'>
+                <button className='place-self-center bg-gradient-to-r from-gray-700 to-indigo-900 hover:to-indigo-950 hover:from-gray-950 border-2 border-white rounded-md p-2' type="submit">Buchen</button>
+
+            </div>
         </form>
     );
 };
