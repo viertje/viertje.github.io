@@ -14,7 +14,7 @@ BizTrip is a web application designed to streamline the process of managing busi
 2. Install dependencies: `npm install`
 3. Start the application: `npm start`
 
-4. (if needed) enable multiple scripts runnung: npm install --save-dev npm-run-all
+4. (if needed) enable multiple scripts runnung: `npm install --save-dev npm-run-all`
 
 ## Usage
 1. Open the application in your web browser.
