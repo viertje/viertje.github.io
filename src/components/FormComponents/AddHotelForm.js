@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { addHotel, getHotels } from '../../api/api';
+import React, { useState } from 'react';
+import { addHotel } from '../../api/api';
 
 export default function BookHotelForm() {
     const [name, setName] = useState('');
@@ -7,22 +7,11 @@ export default function BookHotelForm() {
     const [city, setCity] = useState('');
     const [price, setPrice] = useState('');
 
-    const [data, setData] = useState(null);
-    useEffect(() => {
-        getHotels().then((response) => setData(response));
-    }, [])
-
-    const getID = () => {
-        if (data) {
-            return data.length + 1;
-        }
-    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             await addHotel({
-                id: getID(),
                 name: name,
                 country: country,
                 city: city,

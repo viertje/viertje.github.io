@@ -133,11 +133,25 @@
       "price": "400"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Ibis",
       "country": "Schweiz",
       "city": "Winterthur",
       "price": "70"
+    },
+    {
+      "id": "d4cc",
+      "name": "ueli",
+      "country": "dsaim",
+      "city": "askmd",
+      "price": "213123"
+    },
+    {
+      "id": "cb90",
+      "name": "wqrsaddas",
+      "country": "asdads",
+      "city": "asddas",
+      "price": "21321312"
     }
   ],
   "Flights": [
@@ -339,7 +353,7 @@
       "endDate": "2024-06-18"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Olivier",
       "hotel": {
         "hotel": {
@@ -354,7 +368,7 @@
       "endDate": "2024-06-28"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Olivier",
       "hotel": {
         "hotel": {

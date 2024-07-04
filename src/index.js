@@ -20,6 +20,7 @@ export default function App() {
           <Route path="fluege" element={<Fluege />} />
           <Route path="buchungen" element={<Buchungen />} />
           <Route path="meetings" element={<Meetings />} />
+          <Route path=":hotelLocation" element={<Hotels />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

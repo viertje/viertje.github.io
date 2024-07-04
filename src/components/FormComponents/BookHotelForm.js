@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { addBooking, getHotel, getBookings } from '../../api/api';
+import { addBooking, getHotel } from '../../api/api';
 import DatePicker from 'react-datepicker';
 
 export default function AddHotelForm({id}) {
@@ -13,17 +13,6 @@ export default function AddHotelForm({id}) {
         getHotel(id).then((response) => setHotel(response));
     })
 
-    const [bookings, setBookings] = useState(null);
-    useEffect(() => {
-        getBookings().then((response) => setBookings(response));
-    })
-
-    const getID = () => {
-        if (bookings) {
-            return bookings.length + 1;
-        }
-    }
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,7 +21,6 @@ export default function AddHotelForm({id}) {
         const formattedEndDate = startDate.toISOString().split('T')[0];
         try {
             await addBooking({
-                id: getID(),
                 name: name,
                 hotel: {hotel},
                 startDate: formattedStartDate,
