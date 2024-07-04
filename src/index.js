@@ -16,11 +16,12 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="hotels" element={<Hotels />} />
+          <Route path="hotels" element={<Hotels />}>
+            <Route path=":hotelLocation"/>
+          </Route>
           <Route path="fluege" element={<Fluege />} />
           <Route path="buchungen" element={<Buchungen />} />
           <Route path="meetings" element={<Meetings />} />
-          <Route path=":hotelLocation" element={<Hotels />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

@@ -7,8 +7,11 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { getHotels } from '../api/api';
 import AddHotelForm from '../components/FormComponents/AddHotelForm';
+import { useParams } from 'react-router-dom';
 
 function Hotels() {
+
+    const { hotelLocation } = useParams();
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -41,7 +44,7 @@ function Hotels() {
 
             <div className="bg-gradient-to-r from-blue-900 to-neutral-800 rounded-md gap-8 p-2 flex justify-between">
                 <div>
-                    <HotelSelect />
+                    <HotelSelect search={hotelLocation}/>
                 </div>
  
                 <button className="hover:scale-105 text-black py-2 px-8 bg-gradient-to-r from-gray-200 to-indigo-900 rounded-md">Suchen</button>

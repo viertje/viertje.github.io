@@ -57,9 +57,41 @@ export async function getHotel(id) {
     }
 }
 
+export async function getMeetings() {
+    try {
+        const response = await axios.get(`${BASE_URL}/Meetings`, {
+        });
+        return response.data;
+    } catch (error) {
+        throw error.response;
+    }
+}
+
 export async function deleteBooking(id) {
     try {
         const response = await axios.delete(`${BASE_URL}/Bookings/${id}`);
+        return response.data;
+    } catch (error) {
+        throw error.response;
+    }
+}
+
+export async function addMeeting(meeting) {
+    try {
+        const response = await axios.post(`${BASE_URL}/Meetings`, meeting, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+    } catch (error) {
+        throw error.response;
+    }
+}
+
+export async function getFlights() {
+    try {
+        const response = await axios.get(`https://dxp-fds.flughafen-zuerich.ch/flights`);
         return response.data;
     } catch (error) {
         throw error.response;

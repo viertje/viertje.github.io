@@ -336,6 +336,14 @@
       "price": 100
     }
   ],
+  "Meetings": [
+    {
+      "id": "199b",
+      "name": "wow",
+      "country": "schwiiz",
+      "city": "Chur"
+    }
+  ],
   "Bookings": [
     {
       "id": "2",

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { getHotels } from '../../api/api';
 
-export default function HotelSelect() {
+export default function HotelSelect({search}) {
     
     const [hotels, setHotels] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -27,7 +27,7 @@ export default function HotelSelect() {
 
     return(
 
-    <select className="text-black rounded-md text-center hover:scale-105 mx-2" defaultValue="Stadt auswählen">
+    <select className="text-black rounded-md text-center hover:scale-105 mx-2" defaultValue="Stadt auswählen" value={search}>
     <option disabled>Stadt</option>
         {hotels.map((i, key) => (
             <option key={key} value={i.city}>{i.city}</option>

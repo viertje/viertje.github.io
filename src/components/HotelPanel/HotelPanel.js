@@ -43,7 +43,9 @@ export default function HotelPanel() {
     ))}
     </select >
                 </div>
-                <Link to={":"+city} className="h-12 hover:scale-105 text-black bg-gradient-to-r mx-4 px-8 from-gray-200 to-indigo-900 rounded-md">Suchen</Link>
+                <Link to={"/Hotels/"+city} className="flex place-items-center h-8 hover:scale-105 text-black bg-gradient-to-r mx-4 px-8 from-gray-200 to-indigo-900 rounded-md text-center">
+                <div>Suchen</div>
+                </Link>
 
             </div>
         </>
