@@ -89,9 +89,50 @@ export async function addMeeting(meeting) {
     }
 }
 
-export async function getFlights() {
+export async function getFlightsFromAirport() {
     try {
         const response = await axios.get(`https://dxp-fds.flughafen-zuerich.ch/flights`);
+        return response.data;
+    } catch (error) {
+        throw error.response;
+    }
+}
+
+export async function addFlight(flight) {
+    try {
+        const response = await axios.post(`${BASE_URL}/Flights`, flight, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        return response.data;
+    } catch (error) {
+        throw error.response;
+    }
+}
+
+export async function deleteFlight(id) {
+    try {
+        const response = await axios.delete(`${BASE_URL}/Flights/${id}`);
+        return response.data;
+    } catch (error) {
+        throw error.response;
+    }
+}
+
+export async function getFlight(id) {
+    try {
+        const response = await axios.get(`${BASE_URL}/Flights/${id}`);
+        return response.data;
+    } catch (error) {
+        throw error.response;
+    }
+}
+
+export async function getFlights() {
+    try {
+        const response = await axios.get(`${BASE_URL}/Flights`, {
+        });
         return response.data;
     } catch (error) {
         throw error.response;
