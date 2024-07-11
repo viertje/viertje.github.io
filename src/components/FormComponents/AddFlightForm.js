@@ -4,9 +4,9 @@ import { addFlight } from '../../api/api';
 export default function AddFlightForm({flight}) {
     const [name, setName] = useState('');
 
-    const startDate = new Date(flight.STA);
+    const startDate = flight.STA ? new Date(flight.STA): null;
 
-  const formattedStartDate = startDate.toISOString().split('T')[0];
+  const formattedStartDate = startDate ? startDate.toISOString().split('T')[0] : 'Keine Angabe';
 
     const handleSubmit = async (e) => {
         e.preventDefault();

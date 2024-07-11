@@ -1,5 +1,4 @@
 import React from 'react';
-import "react-datepicker/dist/react-datepicker.css";
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getHotels } from '../../api/api';

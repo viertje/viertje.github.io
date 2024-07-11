@@ -152,6 +152,13 @@
       "country": "asdads",
       "city": "asddas",
       "price": "21321312"
+    },
+    {
+      "id": "23ae",
+      "name": "Nelson",
+      "country": "Switzerland",
+      "city": "Zürich",
+      "price": "200"
     }
   ],
   "Flights": [
@@ -170,6 +177,12 @@
       "name": "wow",
       "country": "schwiiz",
       "city": "Chur"
+    },
+    {
+      "id": "d00a",
+      "name": "Wichtiges Meeting",
+      "country": "Switzerland",
+      "city": "Zürich"
     }
   ],
   "Bookings": [

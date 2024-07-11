@@ -12,7 +12,7 @@ export default function HotelTable({hotel}) {
   return (
     <>
       <div className="bg-gradient-to-r from-blue-900 to-neutral-800 rounded-md p-2 my-1">
-            <div className='flex justify-between mx-2 my-4 px-12 py-4 border-2 rounded-md border-white place-items-center'>
+            <div className='grid grid-cols-5 mx-2 my-4 px-12 py-4 border-2 rounded-md border-white place-items-center'>
               <div value={hotel.name}>{hotel.name}</div>
               <div value={hotel.city}>{hotel.city}</div>
               <div value={hotel.country}>{hotel.country}</div>

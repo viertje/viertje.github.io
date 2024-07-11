@@ -29,7 +29,9 @@ export default function Buchungen() {
 
     return (
         <div>
-            <div className='text-4xl mb-8'>Buchungen</div>
+                <div className='flex justify-center mb-8'>
+                <div className='text-4xl '>Buchungen</div>
+            </div>
         <div className="bg-gradient-to-r from-blue-900 to-neutral-800 rounded-md gap-8 p-2 flex justify-between">
             <div className="flex gap-2 mx-8 place-items-center">
             <div className='text-center'>Name:</div>

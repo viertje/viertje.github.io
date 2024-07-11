@@ -6,11 +6,13 @@ import AddFlightForm from '../FormComponents/AddFlightForm';
 
 export default function FlightTable({flight}) {
 
+  console.log(flight)
+
   const [openModal, setOpenModal] = useState(false);
 
-  const startDate = new Date(flight.STA);
+  const startDate = flight.STA ? new Date(flight.STA) : null;
 
-  const formattedStartDate = startDate.toISOString().split('T')[0];
+  const formattedStartDate = startDate ? startDate.toISOString().split('T')[0] : 'Keine Angabe';
 
 
   return (

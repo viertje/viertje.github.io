@@ -1,21 +1,21 @@
 import React from 'react';
-import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from 'react';
 import { Link } from "react-router-dom"
-import axios from 'axios';
 import { useEffect } from 'react';
+import { getFlightsFromAirport } from '../../api/api';
+
 
 export default function FlightPanel() {
-    const [data, setData] = useState(null);
+    const [flights, setFlights] = useState([]);
+    const cities = [...new Set(flights.map(flight => flight.cityDe))];
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [startDate, setStartDate] = useState(new Date());
+    const [city, setCity] = useState('');
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get('http://localhost:3001/Airports/');
-            setData(response.data);
+            getFlightsFromAirport().then((response) => setFlights(response));
           } catch (error) {
             setError(error.message);
           } finally {
@@ -23,7 +23,7 @@ export default function FlightPanel() {
           }
         };
         fetchData();
-    }, []);
+    }, [])
 
     if (loading) return <div className='w-full flex justify-center mt-48' color="failure" aria-label="Spinner" size="xl">Loading</div>;
     if (error) return <p>Error: {error}</p>;
@@ -35,31 +35,23 @@ export default function FlightPanel() {
                 <div className='text-black text-center'>Flüge</div>
                     <img className="object-cover rounded-md h-full w-full" src="/symbols/airplane.jpg" alt="" />
                 </Link>
-                <div className='col-span-2 grid grid-cols-2 gap-4 p-4'>
+                <div className='col-span-2 grid grid-cols-2 gap-4 p-4 place-content-center'>
                     
-                    <select className="text-black rounded-md text-center hover:scale-105" defaultValue="Von">
-                        <option disabled>Von</option>
-                        {data.map((airport) => (
-                            <option key={airport.id} value={airport.name}>{airport.name}</option>
+                    <select className="text-black rounded-md text-center hover:scale-105 h-12" value={city} defaultValue="Stadt auswählen" onChange={(e) => setCity(e.target.value)}>
+                        <option disabled>Stadt</option>
+                        {cities.map((i, key) => (
+                            <option key={key} value={i}>{i}</option>
                         ))}
                     </select >
-                    <select className="text-black rounded-md text-center hover:scale-105" defaultValue="Nach">
-                        <option disabled>Nach</option>
-                        {data.map((airport) => (
-                            <option key={airport.id} value={airport.name}>{airport.name}</option>
-                        ))}
-                    </select >
-                    <div>
-                    <DatePicker className="hover:scale-105 text-black rounded-md text-center w-44" selected={startDate} onChange={(date) => setStartDate(date)} />
 
-                    </div>
-                    <div>
-                    <DatePicker className="hover:scale-105 text-black rounded-md text-center w-44" selected={startDate} onChange={(date) => setStartDate(date)} />
 
-                    </div>
+                    <div className=''>
+                        <div className="hover:scale-105 text-black py-2 px-8 bg-gradient-to-r from-gray-200 to-indigo-900 rounded-md">
+                        <Link to={"/Fluege/"+city} className="text-center">
+                        <div>Suchen</div>
+                        </Link>
 
-                    <div className='col-span-2 flex justify-center '>
-                        <button className="hover:scale-105 text-black py-2 px-8 bg-gradient-to-r from-gray-200 to-indigo-900 rounded-md">Suchen</button>
+                        </div>
                     </div>
                 </div>
 

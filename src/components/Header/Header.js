@@ -6,7 +6,7 @@ export default function Header(){
         <>
             <div className="mb-8 w-full bg-gradient-to-r from-cyan-800 to-indigo-900 flex justify-between py-4 items-center border-b-2 border-white">
                 <Link className="mx-32 text-xl" to="/">
-                    <img src="./logo.png" alt="logo" className="object-cover w-40 h-10 rounded-md" />
+                    <img src="/logo.png" alt="logo" className="object-cover w-40 h-10 rounded-md" />
                 </Link>
 
                 <div className="flex gap-8 mx-32 text-xl">
