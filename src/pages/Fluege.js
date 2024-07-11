@@ -53,7 +53,6 @@ export default function Fluege() {
                                 <option key={key} value={i}>{i}</option>
                             ))}
                         </select>
-                        <button className='hover:scale-105 text-black py-2 px-8 bg-gradient-to-r from-gray-200 to-indigo-900 rounded-md'>Flug Hinzufügen</button>
 
             </div>
             <div className="bg-gradient-to-r from-blue-900 to-neutral-800 rounded-md p-2 my-8">

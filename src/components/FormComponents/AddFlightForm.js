@@ -18,7 +18,7 @@ export default function AddFlightForm({flight}) {
                 FLN: flight.FLN,
                 date: formattedStartDate,
             })
-            alert('Hotel added');
+            alert('Flight added');
             window.location.reload();
         }
         catch (error) {
